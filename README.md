@@ -28,7 +28,4 @@ How to Run Locally
 2. Open Home.html in your browser.
 
 No build process or external dependencies are required.
-Contact
-Email: BunBaladi@gmail.com
-Phone: +966 5454322
 © 2024 Bun Baladi – Built for a course project at Umm Al-Qura University.
