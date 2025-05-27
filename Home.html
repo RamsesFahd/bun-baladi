@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bun Baladi Coffee</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');    
+    @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    /* Common Styles */
+
+    body {
+      font-family: "Unna", serif;
+      font-weight: 400;
+      margin: 0;
+      padding: 0;
+      background-image: url("assets/coffee.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #E2D9CD;
+      color: #392E26;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-family: "Unna", serif;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      margin: 0 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ccc;
+    }
+
+    /* Home Page Styles */
+    .login-form,
+    .registration-form {
+      margin-bottom: 4rem;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-form h2,
+    .registration-form h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: "Unna", serif;
+      font-size: 2.2rem;
+    }
+
+    .region-links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+
+    .region-links a {
+      background-color: #B5BDAC;
+      color: #392E26;
+      text-decoration: none;
+      padding: 1.2rem 2.5rem;
+      margin: 0 1rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .region-links a:hover {
+      background-color: #555;
+    }
+
+    /* City-Specific Page Styles */
+    .coffee-item {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      background-color: #B5BDAC;
+      color: #333;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: #0056b3;
+    }
+
+    .coffee-item img {
+      width: 250px;
+      height: 400px;
+      object-fit: cover;
+      margin-right: 2.5rem;
+      border-radius: 5px;
+    }
+
+    .coffee-item h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-family: "Unna", serif;
+      font-size: 2rem;
+    }
+
+    .coffee-item p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .coffee-item button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .coffee-item button:hover {
+      background-color: #555;
+    }
+
+    /* FAQ Styles */
+    .faq-section {
+      margin-bottom: 4rem;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: "Unna", serif;
+      font-size: 2.2rem;
+    }
+
+    .faq-item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+
+    /* Language Selector */
+    .language-selector {
+      text-align: right;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+    .language-option {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .language-option.active {
+      font-weight: bold;
+    }
+
+    /* Login/Register Bar */
+    .login-register-bar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: right;
+    }
+
+    .login-register-bar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .divider {
+      margin: 0 5px;
+    }
+    .arabic{
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    footer {
+      background-color: #E2D9CD;
+      color: #392E26;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer a {
+      color: #392E26;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #B5BDAC;
+    }
+    .hero-section {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-image.active {
+  opacity: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 100px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+    
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class="login-register-bar">
+    
+    <a href="AboutUs.html" class="About-us">About Us</a>
+    <span class="divider">|</span>
+    <a href="login.html" class="login-link">Log In</a>
+    <span class="divider">|</span>
+    <a href="createAccount.html" class="register-link">Creat Account</a>
+   
+  </div>
+  <header>
+    <h1>Bun Baladi Coffee</h1>
+    <p>Discover the best coffee in Saudi Arabia</p>
+    <p class="arabic ">فاضي شوية؟ <br>نشرب قهوة في حته بعيدة</p>
+  </header>
+
+
+  
+
+
+
+
+
+
+  <main>
+    <div class="region-links">
+      <a href="Tabuk (1).html">Tabuk</a>
+      <a href="albaha.html">Albaha</a>
+      <a href="Jubail.html">Aljubail</a>
+      <a href="Makkah (1).html">Makkah</a>
+      <a href="qassim.html">Alqassim</a>
+    </div>
+
+    <div class="coffee-item">
+      <img src="assets/Qassim.jpg" alt="Coffee 1">
+      <div>
+        <h3>Qassim Bun</h3>
+        <p>What truly distinguishes Al Qassim coffee beans is their unique flavor profile, a reflection of the region's distinctive terroir.</p>
+        <a href="Qassim.html" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="coffee-item">
+      <img src="assets/makka.jpg" alt="Coffee 2">
+      <div>
+        <h3>Makkah Bun</h3>
+        <p>A Rich Legacy of Arab Culinary Traditions
+          At the heart of the Two Holy Mosques, Bun Makkah reigns supreme as one of the most prominent products of the Arab food heritage.</p>
+        <a href="Makkah (1).html" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="coffee-item">
+      <img src="assets/albaha.jpg"alt="Coffee 3">
+      <div>
+        <h3>Albaha Bun</h3>
+        <p>Al Baha crops represent a distinctive cultural treasure of
+          the region with their pleasant aroma and unique taste, and 
+          are a subspecies of Arabica coffee.</p>
+        <a href="albaha.html" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="coffee-item">
+      <img src="assets/tabuk.jpg" alt="Coffee 3">
+      <div>
+        <h3>Qassim Bun</h3>
+        <p>In the northwestern region of the Kingdom of Saudi Arabia, in the verdant city of Tabuk, 
+          Bin Tabuk unfurls a treasure trove of unique flavors and aromas.</p>
+        <a href="Tabuk (1).html" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="coffee-item">
+      <img src="assets/jubail.jpg" alt="Coffee 3">
+      <div>
+        <h3>Jubail Bun</h3>
+        <p>Al Jubail coffee beans are a testament to the unique terroir of the city, offering a rich and distinct 
+          flavor profile that stands out in the world of specialty coffee.</p>
+        <a href="Jubail.html" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="hero-section">
+      <div class="hero-image-container">
+        <img src="assets/as.jpg" alt="Image 1" class="hero-image active">
+        <img src="assets/bun.jpg" alt="Image 2" class="hero-image">
+        <img src="assets/taiaf.jpg" alt="Image 3" class="hero-image">
+      </div>
+    </div>
+    <br>
+    <br>
+
+  
+
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>What are your operating hours?</h3>
+        <p>We are open from 7am to 8pm every day.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How can I get bun baladi?</h3>
+        <p>Through the points of sale available in each department.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you offer delivery?</h3>
+        <p>No, but we will soon</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Are the products safe to use?</h3>
+        <p>Of course, all products are safe to use because they are made of natural ingredients and free of harmful impurities.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Were the coffee beans selected before packaging?</h3>
+        <p>Indeed, we carefully select the coffee beans and then use the latest packaging methods in containers that help preserve the flavor and ensure that the product is not affected by any external factors or affect its validity.</p>
+      </div>
+
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Bun Baladi. All rights reserved.</p>
+    <h3>CONTACT INFORMATION:</h3>
+    <p>Contact: Phone: 966 966 5454322 | Email: BunBaladi@gmail.com</p>
+  </footer>
+<script>
+    const heroImages = document.querySelectorAll('.hero-image');
+    let currentIndex = 0;
+
+    function swapHeroImage() {
+      heroImages[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % heroImages.length;
+      heroImages[currentIndex].classList.add('active');
+    }
+
+    setInterval(swapHeroImage, 3000); // Swap images every 3 seconds
+  </script>
+
+</body>
+
+</html>

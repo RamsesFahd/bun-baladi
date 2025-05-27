@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Registration</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Welcome */
+    .Welcome {
+      background-color: #E2D9CD;
+      padding: 10px;
+      text-align: center;
+    }
+
+
+
+    /* Navigation */
+    nav {
+      background-color: #392E26;
+      padding: 15px;
+      display: flex;
+      justify-content: left;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Main Content */
+    main {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #392E26;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .login-form {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    .login-form label {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #B5BDAC;
+      color: #392E26;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-form button:hover {
+      background-color: #E2D9CD;
+    }
+
+    .create-account {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .create-account a {
+      color: #392E26;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    footer {
+      background-color: #E2D9CD;
+      color: #392E26;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer a {
+      color: #392E26;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #B5BDAC;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="Welcome">
+    <b>Welcome to Bun Baladi!</b>
+  </div>
+
+  <nav>
+    <a href="Home.html">Home</a>
+   
+  </nav>
+
+  <main>
+    <!-- Login Form -->
+    <h1>Log In</h1>
+    <div class="login-form">
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Log in</button>
+        <div class="create-account">
+          <a href="createAccount.html">Create Account</a>
+        </div>
+      </form>
+      <div id="success-message" style="display: none; background-color: #E2D9CD; padding: 10px; text-align: center; margin-top: 20px;">
+        Login successful! Redirecting to the home page...
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Bun Baladi. All rights reserved.</p>
+    <h3>CONTACT INFORMATION:</h3>
+    <p>Contact: Phone: 966 966 5454322 | Email: BunBaladi@gmail.com</p>
+  </footer>
+  <script>
+  // Get the login form
+var loginForm = document.getElementById("loginForm");
+
+// Get the login success message element
+var loginSuccessMessage = document.getElementById("success-message");
+
+// Handle the login form submission
+loginForm.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the username and password from the form
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  // Perform your login logic here
+  // For example, you can make an AJAX request to a server-side authentication endpoint
+
+  // Show the success message
+  loginSuccessMessage.style.display = "block";
+
+  // Add a delay before redirecting the user to the 'Home.html' page
+  setTimeout(function() {
+    window.location.href = "Home.html";
+  }, 4000); // 4 seconds delay
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Registration</title>
+  <style>
+    /* (Your existing CSS code) */
+    /* General Styles */
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Welcome */
+.Welcome {
+  background-color: #E2D9CD;
+  color: #392E26;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+
+
+
+/* Navigation */
+nav {
+  background-color: #333;
+  padding: 10px 0;
+  text-align: left;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 20px;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.Account-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 400px;
+}
+
+.Account-form h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.Account-form .form-group {
+  margin-bottom: 20px;
+}
+
+.Account-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.Account-form input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px 16px;
+  width: 90%;
+}
+
+.Account-form button {
+  background-color: #B5BDAC;
+  border: none;
+  border-radius: 4px;
+  color: #392E26;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin: 0 auto; 
+}
+
+.Account-form button:hover {
+  background-color: #B5BDAC;
+
+}
+
+.create-account {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create-account a {
+  color: #392E26;
+  text-decoration: none;
+}
+
+.create-account a:hover {
+  color: #B5BDAC;
+}
+.success-message {
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: center;
+}
+footer {
+      background-color: #E2D9CD;
+      color: #392E26;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer a {
+      color: #392E26;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #B5BDAC;
+    }
+  </style>
+</head>
+
+<body>
+    <!--welcome-->
+    <div class="Welcome">
+      <b>Welcome to Bun Baladi!</b>
+    </div>
+  
+    <nav>
+      <a href="Home.html">Back to Home</a>
+      
+    </nav>
+  
+    <main>
+      <!-- Create Account Form -->
+      <h1>Create Account</h1>
+      <div class="Account-form">
+        <form id="AccountForm">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <button type="submit">Create Account</button>
+          </div>
+            
+    <div class="create-account">
+      <a href="login.html">Already have an account? Log in</a>
+    </div>
+        </form>
+      </div>
+      <div id="success-message" class="success-message" style="display: none;">
+        <p>Account created successfully!</p>
+      </div>
+      
+    </main>
+    <footer>
+      <p>&copy; 2023 Bun Baladi. All rights reserved.</p>
+      <h3>CONTACT INFORMATION:</h3>
+      <p>Contact: Phone: 966 966 5454322 | Email: BunBaladi@gmail.com</p>
+    </footer>
+    <script>
+     // Get the create account form
+var createAccountForm = document.getElementById("AccountForm");
+// Get the create account success message element
+var createAccountSuccessMessage = document.getElementById("success-message");
+
+// Handle the create account form submission
+createAccountForm.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the form data
+  var formData = {
+    username: document.getElementById("username").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value
+  };
+
+  // Perform your create account logic here
+  // For example, you can make an AJAX request to a server-side registration endpoint
+
+  // Show the success message
+  createAccountSuccessMessage.style.display = "block";
+
+  // Add a delay before redirecting the user to the 'Home.html' page
+  setTimeout(function() {
+    window.location.href = "Home.html";
+  }, 4000); // 4 seconds delay
+});
+    </script>
+  </body>
+  </html>
